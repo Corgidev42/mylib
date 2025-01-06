@@ -1,33 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   long_size.c                                        :+:      :+:    :+:   */
+/*   ft_strnchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: ezeppa <ezeppa@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/13 22:42:10 by marvin            #+#    #+#             */
-/*   Updated: 2024/12/13 22:42:10 by marvin           ###   ########.fr       */
+/*   Created: 2024/11/05 20:40:50 by ezeppa            #+#    #+#             */
+/*   Updated: 2024/11/13 19:23:32 by ezeppa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-long	long_size(long n)
-{
-	int	len;
+#include "libft.h"
 
-	len = 0;
-	if (n == -2147483648)
-		return (11);
-	if (n < 0)
-	{
-		n = -n;
-		len++;
-	}
-	if (n == 0)
-		return (1);
-	while (n > 0)
-	{
-		n /= 10;
-		len++;
-	}
-	return (len);
+char	*ft_strnchr(const char *s, int c, size_t n)
+{
+	char	*ptr;
+
+	ptr = (char *)s;
+	while (n-- && *ptr && *ptr != (unsigned char)c)
+		ptr++;
+	if (*ptr != (unsigned char)c)
+		return (NULL);
+	return (ptr);
 }

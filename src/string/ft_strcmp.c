@@ -1,33 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   long_size.c                                        :+:      :+:    :+:   */
+/*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: ezeppa <ezeppa@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/13 22:42:10 by marvin            #+#    #+#             */
-/*   Updated: 2024/12/13 22:42:10 by marvin           ###   ########.fr       */
+/*   Created: 2024/11/05 20:52:50 by ezeppa            #+#    #+#             */
+/*   Updated: 2024/11/13 19:23:32 by ezeppa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-long	long_size(long n)
-{
-	int	len;
+#include "libft.h"
 
-	len = 0;
-	if (n == -2147483648)
-		return (11);
-	if (n < 0)
+int	ft_strcmp(const char *s1, const char *s2)
+{
+	while (*s1 && *s2 && (unsigned char)*s1 == (unsigned char)*s2)
 	{
-		n = -n;
-		len++;
+		s1++;
+		s2++;
 	}
-	if (n == 0)
-		return (1);
-	while (n > 0)
-	{
-		n /= 10;
-		len++;
-	}
-	return (len);
+	return ((unsigned char)*s1 - (unsigned char)*s2);
 }
