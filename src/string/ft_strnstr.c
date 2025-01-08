@@ -5,30 +5,37 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: vbonnard <vbonnard@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/05 21:17:25 by ezeppa            #+#    #+#             */
-/*   Updated: 2025/01/07 14:03:38 by vbonnard         ###   ########.fr       */
+/*   Created: 2024/11/10 17:48:03 by dev               #+#    #+#             */
+/*   Updated: 2025/01/08 09:52:12 by vbonnard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strnstr(const char *big, const char *little, size_t len)
+char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 {
-	char	*ptr_big;
-	size_t	big_len;
-	size_t	little_len;
+	size_t	i;
+	size_t	j;
+	char	*ptr;
 
-	ptr_big = (char *)big;
-	big_len = ft_strlen(big);
-	little_len = ft_strlen(little);
-	if (!*little)
-		return ((char *)big);
-	while (len > 0 && big_len >= little_len && len >= little_len)
+	ptr = (char *)haystack;
+	i = 0;
+	j = 0;
+	if (*needle == 0)
+		return (ptr);
+	while (*haystack && i < len)
 	{
-		if (ft_memcmp(ptr_big, little, little_len) == 0)
-			return (ptr_big);
-		ptr_big++;
-		len--;
+		j = 0;
+		if (ptr[i] == needle[j])
+		{
+			while (ptr[i + j] == needle[j] && (i + j) < len)
+			{
+				j++;
+				if (needle[j] == '\0')
+					return (ptr + i);
+			}
+		}
+		i++;
 	}
 	return (NULL);
 }

@@ -6,7 +6,7 @@
 /*   By: vbonnard <vbonnard@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/05 21:37:24 by ezeppa            #+#    #+#             */
-/*   Updated: 2025/01/07 14:02:52 by vbonnard         ###   ########.fr       */
+/*   Updated: 2025/01/08 09:46:36 by vbonnard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,3 +26,4 @@ void	*ft_realloc(void *ptr, size_t new_size)
 	ft_memcpy(new_ptr, ptr, new_size);
 	return (new_ptr);
 }
+

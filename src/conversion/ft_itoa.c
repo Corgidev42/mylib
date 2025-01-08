@@ -5,67 +5,70 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: vbonnard <vbonnard@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/11 19:24:27 by ezeppa            #+#    #+#             */
-/*   Updated: 2025/01/07 14:02:07 by vbonnard         ###   ########.fr       */
+/*   Created: 2024/11/13 13:25:38 by dev               #+#    #+#             */
+/*   Updated: 2025/01/08 09:42:12 by vbonnard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	int_size(int n)
+size_t	number_size(int n)
 {
-	int		len;
+	size_t	size;
 
-	len = 0;
-	if (n == -2147483648)
-		return (11);
+	size = 0;
 	if (n < 0)
 	{
-		n = -n;
-		len++;
+		size++;
+		n *= -1;
 	}
-	if (n == 0)
-		return (1);
-	while (n > 0)
+	while (n > 9)
 	{
 		n /= 10;
-		len++;
+		size++;
 	}
-	return (len);
+	size++;
+	return (size);
 }
 
-void	ft_recursive(char *s, int n, int i)
+char	*ft_cast(char *nb, int n, size_t len)
 {
+	if (n == 0)
+	{
+		nb[0] = '0';
+		return (nb);
+	}
 	if (n < 0)
 	{
-		s[0] = '-';
+		nb[0] = '-';
 		n = -n;
 	}
-	if (n > 9)
+	while (n)
 	{
-		ft_recursive(s, n / 10, i - 1);
-		s[i] = (n % 10) + '0';
+		nb[--len] = n % 10 + '0';
+		n /= 10;
 	}
-	else
-		s[i] = n + '0';
+	return (nb);
 }
 
 char	*ft_itoa(int n)
 {
-	char	*ptr;
+	char	*nb;
+	size_t	len;
 
 	if (n == -2147483648)
 	{
-		ptr = malloc(sizeof(char) * 12);
-		if (!ptr)
-			return (ptr);
-		ft_strlcpy(ptr, "-2147483648", 12);
-		return (ptr);
+		nb = malloc(sizeof(char) * 12);
+		if (nb == NULL)
+			return (NULL);
+		ft_strlcpy(nb, "-2147483648", 12);
+		return (nb);
 	}
-	ptr = malloc(sizeof(char) * (int_size(n) + 1));
-	if (!ptr)
+	len = number_size(n);
+	nb = malloc(sizeof(char) * (len + 1));
+	if (nb == NULL)
 		return (NULL);
-	ft_recursive(ptr, n, (int_size(n) - 1));
-	ptr[int_size(n)] = '\0';
-	return (ptr);
+	nb = ft_cast(nb, n, len);
+	nb[len] = '\0';
+	return (nb);
 }

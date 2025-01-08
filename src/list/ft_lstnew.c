@@ -1,19 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_toupper.c                                       :+:      :+:    :+:   */
+/*   ft_lstnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vbonnard <vbonnard@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/06 16:15:58 by vincent           #+#    #+#             */
-/*   Updated: 2025/01/08 09:41:56 by vbonnard         ###   ########.fr       */
+/*   Created: 2024/11/14 14:51:53 by dev               #+#    #+#             */
+/*   Updated: 2025/01/08 09:58:34 by vbonnard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_toupper(int c)
+#include "libft.h"
+
+t_list	*ft_lstnew(void *content)
 {
-	if (!(c >= 'a' && c <= 'z'))
-		return (c);
-	else
-		return (c - 32);
+	t_list	*element;
+
+	element = malloc(sizeof(t_list));
+	if (element == NULL)
+		return (NULL);
+	element->content = content;
+	element->next = NULL;
+	return (element);
 }

@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: vbonnard <vbonnard@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/07 19:19:45 by ezeppa            #+#    #+#             */
-/*   Updated: 2025/01/07 14:03:44 by vbonnard         ###   ########.fr       */
+/*   Created: 2024/11/12 16:45:00 by dev               #+#    #+#             */
+/*   Updated: 2025/01/08 09:52:34 by vbonnard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +14,24 @@
 
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	char	*ptr;
+	size_t	i;
+	char	*str;
 
 	if (!s)
 		return (NULL);
-	if (start > ft_strlen(s))
+	if (start >= ft_strlen(s))
 		return (ft_strdup(""));
 	if (len > ft_strlen(s) - start)
 		len = ft_strlen(s) - start;
-	ptr = malloc(sizeof(char) * (len + 1));
-	if (!ptr)
-		return (ptr);
-	ft_strlcpy(ptr, &s[start], (len + 1));
-	return (ptr);
+	str = malloc(sizeof(char) * (len + 1));
+	if (!str)
+		return (NULL);
+	i = 0;
+	while (i < len && s[start + i])
+	{
+		str[i] = s[start + i];
+		i++;
+	}
+	str[i] = '\0';
+	return (str);
 }

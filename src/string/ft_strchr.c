@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: vbonnard <vbonnard@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/05 20:40:50 by ezeppa            #+#    #+#             */
-/*   Updated: 2025/01/07 14:03:18 by vbonnard         ###   ########.fr       */
+/*   Created: 2024/11/06 16:59:44 by vincent           #+#    #+#             */
+/*   Updated: 2025/01/08 09:50:48 by vbonnard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,14 @@
 
 char	*ft_strchr(const char *s, int c)
 {
-	char	*ptr;
-
-	ptr = (char *)s;
-	while (*ptr && *ptr != (unsigned char)c)
-		ptr++;
-	if (*ptr != (unsigned char)c)
-		return (NULL);
-	return (ptr);
+	while (*s)
+	{
+		if (*s == (char)c)
+			return ((char *)s);
+		s++;
+	}
+	if ((char)c == '\0')
+		return ((char *)s);
+	return (NULL);
 }
+

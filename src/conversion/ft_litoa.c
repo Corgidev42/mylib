@@ -6,7 +6,7 @@
 /*   By: vbonnard <vbonnard@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/13 22:40:22 by marvin            #+#    #+#             */
-/*   Updated: 2025/01/07 14:02:09 by vbonnard         ###   ########.fr       */
+/*   Updated: 2025/01/08 10:32:18 by vbonnard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,10 +40,10 @@ char	*ft_litoa(long n)
 		ft_strlcpy(ptr, "-2147483648", 12);
 		return (ptr);
 	}
-	ptr = malloc(sizeof(char) * (long_size(n) + 1));
+	ptr = malloc(sizeof(char) * (ft_long_size(n) + 1));
 	if (!ptr)
 		return (NULL);
-	ft_recursive(ptr, n, (long_size(n) - 1));
-	ptr[long_size(n)] = '\0';
+	ft_recursive(ptr, n, (ft_long_size(n) - 1));
+	ptr[ft_long_size(n)] = '\0';
 	return (ptr);
 }

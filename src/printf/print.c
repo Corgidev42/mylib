@@ -6,7 +6,7 @@
 /*   By: vbonnard <vbonnard@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/22 01:48:56 by marvin            #+#    #+#             */
-/*   Updated: 2025/01/07 14:03:08 by vbonnard         ###   ########.fr       */
+/*   Updated: 2025/01/08 10:32:32 by vbonnard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,7 +93,7 @@ int	print_d_i(t_format *format, int nb)
 			res = formatted_width_minus_zero(res, format->width,
 					format->flag_minus, format->flag_zero);
 			res[0] = '-';
-			res[format->width - long_size((long)nb)] = '0';
+			res[format->width - ft_long_size((long)nb)] = '0';
 		}
 		else
 			res = formatted_width_minus_zero(

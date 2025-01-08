@@ -5,14 +5,15 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: vbonnard <vbonnard@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/05 20:36:36 by ezeppa            #+#    #+#             */
-/*   Updated: 2025/01/07 14:02:22 by vbonnard         ###   ########.fr       */
+/*   Created: 2024/11/06 16:20:06 by vincent           #+#    #+#             */
+/*   Updated: 2025/01/08 09:41:52 by vbonnard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 int	ft_tolower(int c)
 {
-	if (c >= 'A' && c <= 'Z')
-		c += 32;
-	return (c);
+	if (!(c >= 'A' && c <= 'Z'))
+		return (c);
+	else
+		return (c + 32);
 }
