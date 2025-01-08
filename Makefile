@@ -38,7 +38,8 @@ SRC_MEMORY =	src/memory/ft_bzero.c\
 				src/memory/ft_memset.c\
 				src/memory/ft_realloc.c
 
-SRC_NUMBER =	src/number/ft_long_size.c
+SRC_NUMBER =	src/number/ft_long_size.c\
+				src/number/ft_int_size.c
 
 SRC_STRING =	src/string/ft_split.c\
 				src/string/ft_strchr.c\

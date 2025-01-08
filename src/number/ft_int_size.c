@@ -6,11 +6,11 @@
 /*   By: vbonnard <vbonnard@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/08 09:47:57 by vbonnard          #+#    #+#             */
-/*   Updated: 2025/01/08 09:48:11 by vbonnard         ###   ########.fr       */
+/*   Updated: 2025/01/08 10:48:15 by vbonnard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	int_size(int n)
+int	ft_int_size(int n)
 {
 	int	len;
 

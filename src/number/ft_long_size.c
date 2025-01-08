@@ -6,11 +6,11 @@
 /*   By: vbonnard <vbonnard@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/13 22:42:10 by marvin            #+#    #+#             */
-/*   Updated: 2025/01/08 09:46:46 by vbonnard         ###   ########.fr       */
+/*   Updated: 2025/01/08 10:48:12 by vbonnard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-long	long_size(long n)
+long	ft_long_size(long n)
 {
 	int	len;
 
