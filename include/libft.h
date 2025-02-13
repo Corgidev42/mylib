@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: vbonnard <vbonnard@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/05 10:07:52 by ezeppa            #+#    #+#             */
-/*   Updated: 2025/01/08 10:48:54 by vbonnard         ###   ########.fr       */
+/*   Created: 2025/02/13 13:53:38 by vbonnard          #+#    #+#             */
+/*   Updated: 2025/02/13 14:03:43 by vbonnard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,456 +27,461 @@ typedef struct s_list
 // ---------------- Conversion functions --------------------------------------
 
 /**
- * Converts a string to an integer.
+ * Convertit une chaîne de caractères en entier.
  *
- * @param nptr The string to be converted.
- * @return The integer value of the string.
+ * @param nptr La chaîne de caractères à convertir.
+ * @return La valeur entière représentée par la chaîne.
  */
 int					ft_atoi(const char *nptr);
 
 /**
- * Converts an integer to a string.
+ * Convertit un entier en chaîne de caractères.
  *
- * @param n The integer to be converted.
- * @return The string representation of the integer.
+ * @param n L'entier à convertir.
+ * @return La représentation sous forme de chaîne de l'entier.
  */
 char				*ft_itoa(int n);
 
 /**
- * Converts a long integer to a string.
+ * Convertit un entier long en chaîne de caractères.
  *
- * @param n The long integer to be converted.
- * @return The string representation of the long integer.
+ * @param n L'entier long à convertir.
+ * @return La représentation sous forme de chaîne de l'entier long.
  */
 char				*ft_litoa(long n);
 
 // ---------------- Character type functions ----------------------------------
-
 /**
- * Checks if the given character is alphabetic.
+ * Vérifie si le caractère donné est alphabétique.
  *
- * @param c The character to be checked.
- * @return 1 if the character is alphabetic, 0 otherwise.
+ * @param c Le caractère à vérifier.
+ * @return 1 si le caractère est alphabétique, 0 sinon.
  */
 int					ft_isalpha(int c);
 
 /**
- * Checks if the given character is a digit.
+ * Vérifie si le caractère donné est un chiffre.
  *
- * @param c The character to be checked.
- * @return 1 if the character is a digit, 0 otherwise.
+ * @param c Le caractère à vérifier.
+ * @return 1 si le caractère est un chiffre, 0 sinon.
  */
 int					ft_isdigit(int c);
 
 /**
- * Checks if the given character is alphanumeric (letters or digits).
+ * Vérifie si le caractère donné est alphanumérique (lettre ou chiffre).
  *
- * @param c The character to be checked.
- * @return 1 if the character is alphanumeric, 0 otherwise.
+ * @param c Le caractère à vérifier.
+ * @return 1 si le caractère est alphanumérique, 0 sinon.
  */
 int					ft_isalnum(int c);
 
 /**
- * Checks if the given character is a valid ASCII character.
+ * Vérifie si le caractère donné est un caractère ASCII valide.
  *
- * @param c The character to be checked.
- * @return 1 if the character is ASCII, 0 otherwise.
+ * @param c Le caractère à vérifier.
+ * @return 1 si le caractère est ASCII, 0 sinon.
  */
 int					ft_isascii(int c);
 
 /**
- * Checks if the given character is printable (including space).
+ * Vérifie si le caractère donné est imprimable (y compris l'espace).
  *
- * @param c The character to be checked.
- * @return 1 if the character is printable, 0 otherwise.
+ * @param c Le caractère à vérifier.
+ * @return 1 si le caractère est imprimable, 0 sinon.
  */
 int					ft_isprint(int c);
 
 /**
- * Converts a character to uppercase.
+ * Convertit un caractère en majuscule.
  *
- * @param c The character to be converted.
- * @return The uppercase version of the character.
+ * @param c Le caractère à convertir.
+ * @return La version majuscule du caractère.
  */
 int					ft_toupper(int c);
 
 /**
- * Converts a character to lowercase.
+ * Convertit un caractère en minuscule.
  *
- * @param c The character to be converted.
- * @return The lowercase version of the character.
+ * @param c Le caractère à convertir.
+ * @return La version minuscule du caractère.
  */
 int					ft_tolower(int c);
 
 // --------------- Input/Output functions -------------------------------------
-
 /**
- * Writes a character to a file descriptor.
+ * Écrit un caractère sur un descripteur de fichier.
  *
- * @param c The character to write.
- * @param fd The file descriptor to write to.
+ * @param c Le caractère à écrire.
+ * @param fd Le descripteur de fichier sur lequel écrire.
  */
 void				ft_putchar_fd(char c, int fd);
 
 /**
- * Writes a string to a file descriptor.
+ * Écrit une chaîne de caractères sur un descripteur de fichier.
  *
- * @param s The string to write.
- * @param fd The file descriptor to write to.
+ * @param s La chaîne de caractères à écrire.
+ * @param fd Le descripteur de fichier sur lequel écrire.
  */
 void				ft_putstr_fd(char *s, int fd);
 
 /**
- * Writes a string followed by a newline to a file descriptor.
+ * Écrit une chaîne de caractères suivie d'un
+ * retour à la ligne sur un descripteur de fichier.
  *
- * @param s The string to write.
- * @param fd The file descriptor to write to.
+ * @param s La chaîne de caractères à écrire.
+ * @param fd Le descripteur de fichier sur lequel écrire.
  */
 void				ft_putendl_fd(char *s, int fd);
 
 /**
- * Writes an integer as a string to a file descriptor.
+ * Écrit un entier sous forme de chaîne
+ * de caractères sur un descripteur de fichier.
  *
- * @param n The integer to write.
- * @param fd The file descriptor to write to.
+ * @param n L'entier à écrire.
+ * @param fd Le descripteur de fichier sur lequel écrire.
  */
 void				ft_putnbr_fd(int n, int fd);
 
 // --------------- List functions ---------------------------------------------
-
 /**
- * Adds a new node to the end of the list.
+ * Ajoute un nouveau nœud à la fin de la liste.
  *
- * @param lst A pointer to the list.
- * @param new The new node to add.
+ * @param lst Un pointeur sur la liste.
+ * @param new Le nouveau nœud à ajouter.
  */
 void				ft_lstadd_back(t_list **lst, t_list *new);
 
 /**
- * Adds a new node to the front of the list.
+ * Ajoute un nouveau nœud au début de la liste.
  *
- * @param lst A pointer to the list.
- * @param new The new node to add.
+ * @param lst Un pointeur sur la liste.
+ * @param new Le nouveau nœud à ajouter.
  */
 void				ft_lstadd_front(t_list **lst, t_list *new);
 
 /**
- * Clears the list by deleting all its nodes and freeing the memory.
+ * Supprime tous les nœuds de la liste et libère la mémoire.
  *
- * @param lst A pointer to the list.
- * @param del A function to delete the content of each node.
+ * @param lst Un pointeur sur la liste.
+ * @param del Une fonction pour supprimer le contenu de chaque nœud.
  */
 void				ft_lstclear(t_list **lst, void (*del)(void *));
 
 /**
- * Deletes a node from the list and frees its memory.
+ * Supprime un nœud de la liste et libère sa mémoire.
  *
- * @param lst The node to delete.
- * @param del A function to delete the content of the node.
+ * @param lst Le nœud à supprimer.
+ * @param del Une fonction pour supprimer le contenu du nœud.
  */
 void				ft_lstdelone(t_list *lst, void (*del)(void *));
 
 /**
- * Iterates through the list, applying a function to the content of each node.
+ * Parcourt la liste en appliquant une fonction au contenu de chaque nœud.
  *
- * @param lst The list to iterate through.
- * @param f The function to apply to each node.
+ * @param lst La liste à parcourir.
+ * @param f La fonction à appliquer à chaque nœud.
  */
 void				ft_lstiter(t_list *lst, void (*f)(void *));
 
 /**
- * Returns the last node of the list.
+ * Renvoie le dernier nœud de la liste.
  *
- * @param lst The list to search.
- * @return The last node of the list.
+ * @param lst La liste à parcourir.
+ * @return Le dernier nœud de la liste.
  */
 t_list				*ft_lstlast(t_list *lst);
 
 /**
-
-	* Creates a new list by applying a function to each node's content in the original list.
+ * Crée une nouvelle liste en appliquant une fonction
+ * au contenu de chaque nœud de la liste d'origine.
  *
- * @param lst The list to map.
- * @param f The function to apply to each node's content.
- * @param del A function to delete the content of each node.
- * @return A new list with the transformed content.
+ * @param lst La liste à parcourir.
+ * @param f La fonction à appliquer au contenu de chaque nœud.
+ * @param del Une fonction pour supprimer le contenu des nœuds en cas d'erreur.
+ * @return Une nouvelle liste avec le contenu transformé,
+ * ou NULL en cas d'échec.
  */
 t_list				*ft_lstmap(t_list *lst, void *(*f)(void *),
 						void (*del)(void *));
 
 /**
- * Creates a new node with the given content.
+ * Crée un nouveau nœud contenant le contenu donné.
  *
- * @param content The content of the new node.
- * @return The new node.
+ * @param content Le contenu du nouveau nœud.
+ * @return Le nouveau nœud, ou NULL en cas d'échec.
  */
 t_list				*ft_lstnew(void *content);
 
 /**
- * Returns the size of the list (number of nodes).
+ * Renvoie la taille de la liste (nombre de nœuds).
  *
- * @param lst The list to measure.
- * @return The size of the list.
+ * @param lst La liste à mesurer.
+ * @return La taille de la liste.
  */
 int					ft_lstsize(t_list *lst);
 
 // --------------- Memory functions -------------------------------------------
-
 /**
-
-	* Sets the first 'n' bytes of the memory area pointed to by 's' to the value 'c'.
+ * Remplit les 'n' premiers octets de la zone mémoire
+ * pointée par 's' avec la valeur 'c'.
  *
- * @param s The memory area to modify.
- * @param c The value to set.
- * @param n The number of bytes to set.
- * @return The pointer to the memory area.
+ * @param s La zone mémoire à modifier.
+ * @param c La valeur à copier.
+ * @param n Le nombre d'octets à définir.
+ * @return Un pointeur sur la zone mémoire.
  */
 void				*ft_memset(void *s, int c, size_t n);
 
 /**
- * Sets the first 'n' bytes of the memory area pointed to by 's' to zero.
+ * Remplit les 'n' premiers octets de la zone mémoire
+ * pointée par 's' avec des zéros.
  *
- * @param s The memory area to clear.
- * @param n The number of bytes to clear.
+ * @param s La zone mémoire à effacer.
+ * @param n Le nombre d'octets à mettre à zéro.
  */
 void				ft_bzero(void *s, size_t n);
 
 /**
- * Copies 'n' bytes from memory area 'src' to memory area 'dest'.
+ * Copie 'n' octets depuis la zone mémoire 'src' vers
+ * la zone mémoire 'dest'.
  *
- * @param dest The destination memory area.
- * @param src The source memory area.
- * @param n The number of bytes to copy.
- * @return A pointer to the destination memory area.
+ * @param dest La zone mémoire de destination.
+ * @param src La zone mémoire source.
+ * @param n Le nombre d'octets à copier.
+ * @return Un pointeur sur la zone mémoire de destination.
  */
 void				*ft_memcpy(void *dest, const void *src, size_t n);
 
 /**
- * Copies 'n' bytes from memory area 'src' to memory area 'dest',
-	handling overlap.
+ * Copie 'n' octets depuis la zone mémoire 'src' vers la zone mémoire 'dest',
+ * en gérant le chevauchement.
  *
- * @param dest The destination memory area.
- * @param src The source memory area.
- * @param n The number of bytes to copy.
- * @return A pointer to the destination memory area.
+ * @param dest La zone mémoire de destination.
+ * @param src La zone mémoire source.
+ * @param n Le nombre d'octets à copier.
+ * @return Un pointeur sur la zone mémoire de destination.
  */
 void				*ft_memmove(void *dest, const void *src, size_t n);
 
 /**
-
-	* Searches for the first occurrence of the character 'c' in the memory area 's'.
+ * Recherche la première occurrence du caractère 'c' dans la zone mémoire 's'.
  *
- * @param s The memory area to search.
- * @param c The character to find.
- * @param n The number of bytes to search.
- * @return A pointer to the first occurrence of 'c', or NULL if not found.
+ * @param s La zone mémoire à parcourir.
+ * @param c Le caractère à rechercher.
+ * @param n Le nombre d'octets à analyser.
+ * @return Un pointeur sur la première occurrence de 'c', ou NULL si non trouvée.
  */
 void				*ft_memchr(const void *s, int c, size_t n);
 
 /**
- * Compares the first 'n' bytes of two memory areas.
+ * Compare les 'n' premiers octets de deux zones mémoires.
  *
- * @param s1 The first memory area.
- * @param s2 The second memory area.
- * @param n The number of bytes to compare.
- * @return 0 if the areas are equal, a positive or negative value otherwise.
+ * @param s1 La première zone mémoire.
+ * @param s2 La deuxième zone mémoire.
+ * @param n Le nombre d'octets à comparer.
+ * @return 0 si les zones sont égales, une valeur positive ou négative sinon.
  */
 int					ft_memcmp(const void *s1, const void *s2, size_t n);
 
 /**
- * Allocates memory for an array of 'nmemb' elements of size 'size' bytes.
+ * Alloue de la mémoire pour un tableau de 'nmemb'
+ * éléments de 'size' octets chacun.
  *
- * @param nmemb The number of elements.
- * @param size The size of each element.
- * @return A pointer to the allocated memory.
+ * @param nmemb Le nombre d'éléments.
+ * @param size La taille de chaque élément.
+ * @return Un pointeur sur la mémoire allouée.
  */
 void				*ft_calloc(size_t nmemb, size_t size);
 
 /**
- * Reallocates memory for a pointer to a new size.
+ * Réalloue la mémoire pointée par 'ptr' pour une nouvelle taille.
  *
- * @param ptr The original pointer.
- * @param new_size The new size of the memory.
- * @return A pointer to the reallocated memory.
+ * @param ptr Le pointeur vers la mémoire existante.
+ * @param new_size La nouvelle taille de la mémoire.
+ * @return Un pointeur sur la mémoire réallouée.
  */
 void				*ft_realloc(void *ptr, size_t new_size);
 
 // --------------- Number functions -------------------------------------------
-
 /**
- * Returns the number of digits in a long integer.
+ * Renvoie le nombre de chiffres dans un entier long.
  *
- * @param n The long integer.
- * @return The number of digits.
+ * @param n L'entier long.
+ * @return Le nombre de chiffres.
  */
 long				ft_long_size(long n);
 
 /**
- * Returns the number of digits in an integer.
+ * Renvoie le nombre de chiffres dans un entier.
  *
- * @param n The integer.
- * @return The number of digits.
+ * @param n L'entier.
+ * @return Le nombre de chiffres.
  */
 int					ft_int_size(int n);
 
 // --------------- String functions -------------------------------------------
-
 /**
- * @brief Calculates the length of a string.
+ * @brief Calcule la longueur d'une chaîne de caractères.
  *
- * @param s The string.
- * @return The length of the string (does not count the null character '\0').
+ * @param s La chaîne de caractères.
+ * @return La longueur de la chaîne (ne compte pas le caractère nul '\0').
  */
 size_t				ft_strlen(const char *s);
 
 /**
- * @brief Copies a string to another, respecting a maximum size.
+ * @brief Copie une chaîne de caractères dans une autre,
+ * en respectant une taille maximale.
  *
- * @param dst The destination buffer.
- * @param src The source string to copy.
- * @param size The maximum size to copy (including the null character).
- * @return The total length of the source string.
+ * @param dst Le tampon de destination.
+ * @param src La chaîne source à copier.
+ * @param size La taille maximale à copier (inclut le caractère nul).
+ * @return La longueur totale de la chaîne source.
  */
 size_t				ft_strlcpy(char *dst, const char *src, size_t size);
 
 /**
- * @brief Concatenates a source string to a destination string,
-	respecting a maximum size.
+ * @brief Concatène une chaîne source à une chaîne de destination,
+ * en respectant une taille maximale.
  *
- * @param dst The destination string.
- * @param src The source string to concatenate.
- * @param size The maximum size of the destination string.
- * @return The total length of the concatenated source string.
+ * @param dst La chaîne de destination.
+ * @param src La chaîne source à concaténer.
+ * @param size La taille maximale de la chaîne de destination.
+ * @return La longueur totale de la chaîne que l'on a essayé de créer.
  */
 size_t				ft_strlcat(char *dst, const char *src, size_t size);
 
 /**
- * @brief Searches for the first occurrence of a character in a string,
-	limited to n characters.
+ * @brief Recherche la première occurrence d'un caractère dans une chaîne,
+ * limitée aux n premiers caractères.
  *
- * @param s The string to analyze.
- * @param c The character to search for.
- * @param n The maximum number of characters to analyze.
- * @return A pointer to the first occurrence of c in the string,
-	or NULL if not found.
+ * @param s La chaîne à analyser.
+ * @param c Le caractère à rechercher.
+ * @param n Le nombre maximal de caractères à analyser.
+ * @return Un pointeur sur la première occurrence de c dans la chaîne,
+ * ou NULL si non trouvé.
  */
 char				*ft_strnchr(const char *s, int c, size_t n);
 
 /**
- * @brief Searches for the first occurrence of a character in a string.
+ * @brief Recherche la première occurrence d'un caractère dans une chaîne.
  *
- * @param s The string to analyze.
- * @param c The character to search for.
- * @return A pointer to the first occurrence of c in the string,
-	or NULL if not found.
+ * @param s La chaîne à analyser.
+ * @param c Le caractère à rechercher.
+ * @return Un pointeur sur la première occurrence de c dans la chaîne,
+ * ou NULL si non trouvé.
  */
 char				*ft_strchr(const char *s, int c);
 
 /**
- * @brief Searches for the last occurrence of a character in a string.
+ * @brief Recherche la dernière occurrence d'un caractère dans une chaîne.
  *
- * @param s The string to analyze.
- * @param c The character to search for.
- * @return A pointer to the last occurrence of c in the string,
-	or NULL if not found.
+ * @param s La chaîne à analyser.
+ * @param c Le caractère à rechercher.
+ * @return Un pointeur sur la dernière occurrence de c dans la chaîne,
+ * ou NULL si non trouvé.
  */
 char				*ft_strrchr(const char *s, int c);
 
 /**
- * @brief Compares two strings.
+ * @brief Compare deux chaînes de caractères.
  *
- * @param s1 The first string to compare.
- * @param s2 The second string to compare.
- * @return A negative integer if s1 is less than s2, 0 if they are equal,
-	a positive integer otherwise.
+ * @param s1 La première chaîne à comparer.
+ * @param s2 La deuxième chaîne à comparer.
+ * @return Un entier négatif si s1 est inférieure à s2, 0 si elles sont égales,
+ * un entier positif si s1 est supérieure à s2.
  */
 int					ft_strcmp(const char *s1, const char *s2);
 
 /**
- * @brief Compares the first n characters of two strings.
+ * @brief Compare les n premiers caractères de deux chaînes.
  *
- * @param s1 The first string to compare.
- * @param s2 The second string to compare.
- * @param n The maximum number of characters to compare.
- * @return A negative integer if the first n characters of s1 are less than those of s2,
-	0 if they are equal, a positive integer otherwise.
+ * @param s1 La première chaîne à comparer.
+ * @param s2 La deuxième chaîne à comparer.
+ * @param n Le nombre maximal de caractères à comparer.
+ * @return Un entier négatif si les n premiers
+ * caractères de s1 sont inférieurs à ceux de s2,
+ * 0 s'ils sont égaux, un entier positif sinon.
  */
 int					ft_strncmp(const char *s1, const char *s2, size_t n);
 
 /**
- * @brief Searches for a substring within a string, limited to n characters.
+ * @brief Recherche une sous-chaîne dans une chaîne,
+ * limitée aux n premiers caractères.
  *
- * @param big The main string.
- * @param little The substring to search for.
- * @param len The maximum number of characters to analyze.
- * @return A pointer to the first occurrence of little in big,
-	or NULL if not found.
+ * @param big La chaîne principale.
+ * @param little La sous-chaîne à rechercher.
+ * @param len Le nombre maximal de caractères à analyser.
+ * @return Un pointeur sur la première occurrence de little dans big,
+ * ou NULL si non trouvé.
  */
 char				*ft_strnstr(const char *big, const char *little,
 						size_t len);
 
 /**
- * @brief Creates a new string that is a copy of the given string.
- * @param s The string to copy.
- * @return A pointer to the newly allocated string, or NULL if allocation fails.
+ * @brief Crée une nouvelle chaîne qui est une copie de la chaîne donnée.
+ *
+ * @param s La chaîne à copier.
+ * @return Un pointeur sur la nouvelle chaîne
+ * allouée, ou NULL si l'allocation échoue.
  */
 char				*ft_strdup(const char *s);
 
 /**
- * @brief Extracts a substring from a string, starting at a given index.
+ * @brief Extrait une sous-chaîne d'une chaîne, en commençant à un index donné.
  *
- * @param s The original string.
- * @param start The starting index of the substring.
- * @param len The length of the substring to extract.
- * @return The extracted substring, or NULL if allocation fails.
+ * @param s La chaîne d'origine.
+ * @param start L'index de départ de la sous-chaîne.
+ * @param len La longueur de la sous-chaîne à extraire.
+ * @return La sous-chaîne extraite, ou NULL si l'allocation échoue.
  */
 char				*ft_substr(char const *s, unsigned int start, size_t len);
 
 /**
- * @brief Joins two strings together.
+ * @brief Concatène deux chaînes ensemble.
  *
- * @param s1 The first string.
- * @param s2 The second string to concatenate to the first.
- * @return A new string that is the concatenation of s1 and s2,
-	or NULL if allocation fails.
+ * @param s1 La première chaîne.
+ * @param s2 La deuxième chaîne à concaténer à la première.
+ * @return Une nouvelle chaîne résultant de la concaténation de s1 et s2,
+ * ou NULL si l'allocation échoue.
  */
 char				*ft_strjoin(char const *s1, char const *s2);
 
 /**
- * @brief Removes characters specified in a set from a string.
+ * @brief Supprime les caractères spécifiés dans un ensemble depuis une chaîne.
  *
- * @param s1 The string to process.
- * @param set The set of characters to remove.
- * @return The processed string, or NULL if allocation fails.
+ * @param s1 La chaîne à traiter.
+ * @param set L'ensemble des caractères à supprimer.
+ * @return La chaîne résultante, ou NULL si l'allocation échoue.
  */
 char				*ft_strtrim(char const *s1, char const *set);
 
 /**
- * @brief Splits a string into an array of substrings separated by a delimiter.
+ * @brief Divise une chaîne en un tableau de
+ * sous-chaînes séparées par un délimiteur.
  *
- * @param s The string to split.
- * @param c The delimiter character.
- * @return An array of substrings, or NULL if allocation fails.
+ * @param s La chaîne à diviser.
+ * @param c Le caractère délimiteur.
+ * @return Un tableau de sous-chaînes, ou NULL si l'allocation échoue.
  */
 char				**ft_split(char const *s, char c);
 
 /**
-
-	* @brief Applies a function to each character of a string to return a new string.
+ * @brief Applique une fonction à chaque caractère
+ * d'une chaîne pour retourner une nouvelle chaîne.
  *
- * @param s The string to process.
- * @param f The function to apply to each character of the string.
- * @return The resulting string after applying the function,
-	or NULL if allocation fails.
+ * @param s La chaîne à traiter.
+ * @param f La fonction à appliquer à chaque caractère de la chaîne.
+ * @return La chaîne résultante après l'application de la fonction,
+ * ou NULL si l'allocation échoue.
  */
 char				*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 
 /**
- * @brief Applies a function to each character of a string,
-	modifying the string in place.
+ * @brief Applique une fonction à chaque caractère d'une chaîne,
+ * en modifiant la chaîne sur place.
  *
- * @param s The string to modify.
- * @param f The function to apply to each character of the string.
+ * @param s La chaîne à modifier.
+ * @param f La fonction à appliquer à chaque caractère de la chaîne.
  */
 void				ft_striteri(char *s, void (*f)(unsigned int, char *));
 
@@ -506,124 +511,144 @@ typedef struct s_format
 }					t_format;
 
 // --------------- Printf Functions -------------------------------------------
-
 /**
- * A custom implementation of the printf function.
+ * Implémentation personnalisée de la fonction printf.
  *
- * @param format The format string that specifies the output format.
- * @param ... The variable arguments that correspond to the format specifiers.
- * @return The total number of characters printed.
+ * @param format La chaîne de format spécifiant le format de sortie.
+ * @param ... Les arguments variables
+ * correspondant aux spécificateurs de format.
+ * @return Le nombre total de caractères imprimés.
  */
 int					ft_printf(const char *format, ...);
 
 /**
- * Initializes the format structure based on the given format string.
+ * Initialise la structure de formatage
+ * en fonction de la chaîne de format donnée.
  *
- * @param ptr A pointer to the format string.
- * @return A pointer to the initialized format structure.
+ * @param ptr Un pointeur vers la chaîne de format.
+ * @return Un pointeur vers la structure de format initialisée.
  */
 t_format			*init_format(const char **ptr);
 
 /**
- * Writes a character to the standard output and returns the number of characters printed.
+ * Écrit un caractère sur la sortie standard et
+ * renvoie le nombre de caractères imprimés.
  *
- * @param c The character to be printed.
- * @return The number of characters printed (always 1).
+ * @param c Le caractère à imprimer.
+ * @return Le nombre de caractères imprimés (toujours 1).
  */
 int					ft_putchar_size(char c);
 
 /**
- * Writes a string to the standard output and returns the number of characters printed.
+ * Écrit une chaîne sur la sortie standard et
+ * renvoie le nombre de caractères imprimés.
  *
- * @param str The string to be printed.
- * @return The number of characters printed.
+ * @param str La chaîne à imprimer.
+ * @return Le nombre de caractères imprimés.
  */
 int					ft_putstr_size(char *str);
 
 /**
- * Converts a number to its hexadecimal representation as a string.
+ * Convertit un nombre en sa représentation hexadécimale sous forme de chaîne.
  *
- * @param nb The number to be converted.
- * @param base The base to use for the conversion (e.g., "0123456789abcdef").
- * @return The hexadecimal representation of the number as a string.
+ * @param nb Le nombre à convertir.
+ * @param base La base à utiliser pour la
+ * conversion (par exemple, "0123456789abcdef").
+ * @return La représentation hexadécimale du nombre sous forme de chaîne.
  */
 char				*convert_to_hexa(unsigned long long nb, char *base);
 
 /**
- * Prints a character with the specified format and returns the number of characters printed.
+ * Imprime un caractère avec le format spécifié et
+ * renvoie le nombre de caractères imprimés.
  *
- * @param format The format structure containing the formatting information.
- * @param c The character to be printed.
- * @return The number of characters printed.
+ * @param format La structure de formatage contenant
+ * les informations de mise en forme.
+ * @param c Le caractère à imprimer.
+ * @return Le nombre de caractères imprimés.
  */
 int					print_c(t_format *format, char c);
 
 /**
- * Prints a string with the specified format and returns the number of characters printed.
+ * Imprime une chaîne avec le format spécifié
+ * et renvoie le nombre de caractères imprimés.
  *
- * @param format The format structure containing the formatting information.
- * @param str The string to be printed.
- * @return The number of characters printed.
+ * @param format La structure de formatage
+ * contenant les informations de mise en forme.
+ * @param str La chaîne à imprimer.
+ * @return Le nombre de caractères imprimés.
  */
 int					print_s(t_format *format, char *str);
 
 /**
- * Prints a pointer address with the specified format and returns the number of characters printed.
+ * Imprime une adresse de pointeur avec le format
+ * spécifié et renvoie le nombre de caractères imprimés.
  *
- * @param format The format structure containing the formatting information.
- * @param ptr The pointer to be printed.
- * @return The number of characters printed.
+ * @param format La structure de formatage contenant
+ * les informations de mise en forme.
+ * @param ptr Le pointeur à imprimer.
+ * @return Le nombre de caractères imprimés.
  */
 int					print_p(t_format *format, void *ptr);
 
 /**
- * Prints an integer or decimal number with the specified format and returns the number of characters printed.
+ * Imprime un entier ou un nombre décimal avec le format
+ * spécifié et renvoie le nombre de caractères imprimés.
  *
- * @param format The format structure containing the formatting information.
- * @param nb The number to be printed.
- * @return The number of characters printed.
+ * @param format La structure de formatage
+ * contenant les informations de mise en forme.
+ * @param nb Le nombre à imprimer.
+ * @return Le nombre de caractères imprimés.
  */
 int					print_d_i(t_format *format, int nb);
 
 /**
- * Prints an unsigned integer with the specified format and returns the number of characters printed.
+ * Imprime un entier non signé avec le format
+ * spécifié et renvoie le nombre de caractères imprimés.
  *
- * @param format The format structure containing the formatting information.
- * @param nb The unsigned integer to be printed.
- * @return The number of characters printed.
+ * @param format La structure de formatage
+ * contenant les informations de mise en forme.
+ * @param nb L'entier non signé à imprimer.
+ * @return Le nombre de caractères imprimés.
  */
 int					print_u(t_format *format, unsigned int nb);
 
 /**
- * Prints a hexadecimal number with the specified format and returns the number of characters printed.
+ * Imprime un nombre hexadécimal avec le format
+ * spécifié et renvoie le nombre de caractères imprimés.
  *
- * @param format The format structure containing the formatting information.
- * @param nb The number to be printed in hexadecimal.
- * @param is_upper Whether to use uppercase letters for hexadecimal digits.
- * @return The number of characters printed.
+ * @param format La structure de formatage
+ * contenant les informations de mise en forme.
+ * @param nb Le nombre à imprimer en hexadécimal.
+ * @param is_upper Indique si les lettres
+ * hexadécimales doivent être en majuscules.
+ * @return Le nombre de caractères imprimés.
  */
 int					print_x(t_format *format, unsigned long nb, int is_upper);
 
 /**
- * Formats a string according to the width and minus/zero flags for padding.
+ * Formate une chaîne en fonction de la largeur
+ * et des drapeaux minus/zero pour le remplissage.
  *
- * @param str The string to be formatted.
- * @param width The total width to pad the string to.
- * @param has_minus Whether the minus flag is present.
- * @param has_zero Whether the zero flag is present.
- * @return The formatted string with the appropriate padding.
+ * @param str La chaîne à formater.
+ * @param width La largeur totale pour remplir la chaîne.
+ * @param has_minus Indique si le drapeau minus est présent.
+ * @param has_zero Indique si le drapeau zero est présent.
+ * @return La chaîne formatée avec le remplissage approprié.
  */
 char				*formatted_width_minus_zero(char *str, int width,
 						int has_minus, int has_zero);
 
 /**
- * Formats a number string according to the precision and plus/space flags.
+ * Formate une chaîne de nombre en fonction
+ * de la précision et des drapeaux plus/espace.
  *
- * @param str The string representation of the number to be formatted.
- * @param precision The precision to format the number to.
- * @param has_plus Whether the plus flag is present.
- * @param has_space Whether the space flag is present.
- * @return The formatted number string with the appropriate precision and flags.
+ * @param str La représentation sous forme de chaîne du nombre à formater.
+ * @param precision La précision pour formater le nombre.
+ * @param has_plus Indique si le drapeau plus est présent.
+ * @param has_space Indique si le drapeau espace est présent.
+ * @return La chaîne de nombre formatée avec
+ * la précision et les drapeaux appropriés.
  */
 char				*formatted_number_precision(char *str, int precision,
 						int has_plus, int has_space);

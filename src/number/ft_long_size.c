@@ -6,7 +6,7 @@
 /*   By: vbonnard <vbonnard@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/13 22:42:10 by marvin            #+#    #+#             */
-/*   Updated: 2025/01/08 10:48:12 by vbonnard         ###   ########.fr       */
+/*   Updated: 2025/02/13 14:05:02 by vbonnard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,4 +31,3 @@ long	ft_long_size(long n)
 	}
 	return (len);
 }
-

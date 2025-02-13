@@ -6,7 +6,7 @@
 /*   By: vbonnard <vbonnard@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/12 17:30:08 by dev               #+#    #+#             */
-/*   Updated: 2025/01/08 09:52:29 by vbonnard         ###   ########.fr       */
+/*   Updated: 2025/02/13 14:04:22 by vbonnard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,4 +44,3 @@ char	*ft_strtrim(char const *s1, char const *set)
 	ft_strlcpy(str, s1, i + 1);
 	return (str);
 }
-
