@@ -77,13 +77,14 @@ TARGET = lib/libft.a
 all: $(TARGET)
 
 $(TARGET): $(OBJ)
+	mkdir -p $(dir $(TARGET))
 	ar rcs $@ $^
 
 clean:
 	rm -f $(OBJ)
 
 fclean: clean
-	rm -f $(TARGET)
+	rm -rf lib
 
 re: fclean all
 
