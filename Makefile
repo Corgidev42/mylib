@@ -50,7 +50,7 @@ SRC_STRING =	src/string/ft_split.c\
 				src/string/ft_strlcat.c\
 				src/string/ft_strlcpy.c\
 				src/string/ft_strndup.c\
-				src/string/ft_strncat.c\
+				src/string/ft_strncpy.c\
 				src/string/ft_strlen.c\
 				src/string/ft_strmapi.c\
 				src/string/ft_strcmp.c\
