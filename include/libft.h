@@ -6,7 +6,7 @@
 /*   By: vbonnard <vbonnard@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 13:53:38 by vbonnard          #+#    #+#             */
-/*   Updated: 2025/02/13 14:03:43 by vbonnard         ###   ########.fr       */
+/*   Updated: 2025/03/07 12:27:38 by vbonnard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -403,6 +403,36 @@ int					ft_strcmp(const char *s1, const char *s2);
  * 0 s'ils sont égaux, un entier positif sinon.
  */
 int					ft_strncmp(const char *s1, const char *s2, size_t n);
+
+/**
+ * @brief Copie jusqu'à len caractères de la chaîne src vers dst.
+ *
+ * Cette fonction copie au maximum len caractères de la chaîne src vers dst.
+ * Si src a moins de len caractères, le reste de dst est rempli avec des
+ * caractères '\0'. Sinon, dst n'est pas terminé par un caractère nul.
+ *
+ * @param dst Le tampon de destination où le contenu doit être copié.
+ * @param src La chaîne source à copier.
+ * @param len Le nombre maximum de caractères à copier de src.
+ * @return Un pointeur vers la chaîne de destination dst.
+ */
+char				*ft_strncpy(char *dst, const char *src, size_t len);
+
+
+/**
+ * @brief Duplique une chaîne de caractères jusqu'à une longueur spécifiée.
+ *
+ * Cette fonction alloue de la mémoire et crée une nouvelle chaîne de caractère
+ * qui est une copie des `n` premiers caractères de la chaîne `s`. La nouvelle
+ * chaîne est terminée par un caractère nul (`\0`).
+ *
+ * @param s La chaîne de caractères source à dupliquer.
+ * @param n Le nombre maximum de caractères à dupliquer de la chaîne source.
+ * @return Un pointeur vers la nouvelle chaîne de caractères dupliquée, ou NULL
+ *         si l'allocation de mémoire échoue.
+ */
+char				*ft_strndup(const char *s, size_t n);
+
 
 /**
  * @brief Recherche une sous-chaîne dans une chaîne,

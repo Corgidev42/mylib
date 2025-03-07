@@ -30,6 +30,8 @@ MyLib42 is a personal C library developed during my studies at 42. It gathers es
 - `ft_strrchr` 🔄 - Locate the last occurrence of a character.
 - `ft_strcmp` 🗒️ - Compare two strings.
 - `ft_strncmp` - Compare two strings up to `n` characters.
+- `ft_strndup` -
+- `ft_strncat` - 
 - `ft_strnstr` 💧 - Find a substring with length limit.
 - `ft_strdup` 💾 - Duplicate a string.
 - `ft_substr` - Extract a substring.
