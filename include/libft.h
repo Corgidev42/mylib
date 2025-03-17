@@ -6,7 +6,7 @@
 /*   By: vbonnard <vbonnard@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 13:53:38 by vbonnard          #+#    #+#             */
-/*   Updated: 2025/03/07 12:27:38 by vbonnard         ###   ########.fr       */
+/*   Updated: 2025/03/17 15:23:37 by vbonnard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -418,7 +418,6 @@ int					ft_strncmp(const char *s1, const char *s2, size_t n);
  */
 char				*ft_strncpy(char *dst, const char *src, size_t len);
 
-
 /**
  * @brief Duplique une chaîne de caractères jusqu'à une longueur spécifiée.
  *
@@ -432,7 +431,6 @@ char				*ft_strncpy(char *dst, const char *src, size_t len);
  *         si l'allocation de mémoire échoue.
  */
 char				*ft_strndup(const char *s, size_t n);
-
 
 /**
  * @brief Recherche une sous-chaîne dans une chaîne,
