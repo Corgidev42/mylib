@@ -6,7 +6,7 @@
 /*   By: vbonnard <vbonnard@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 13:53:38 by vbonnard          #+#    #+#             */
-/*   Updated: 2025/05/21 11:38:22 by vbonnard         ###   ########.fr       */
+/*   Updated: 2025/05/21 11:56:58 by vbonnard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -392,7 +392,7 @@ char				*ft_strchr(const char *s, int c);
  *
  * @note Cette fonction devrait idéalement être placée dans libft.
  */
-char	*ft_strldup(const char *s, size_t size);
+char				*ft_strldup(const char *s, size_t size);
 
 /**
  * @brief Recherche la dernière occurrence d'un caractère dans une chaîne.
