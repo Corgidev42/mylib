@@ -6,7 +6,7 @@
 /*   By: vbonnard <vbonnard@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/12 16:54:57 by dev               #+#    #+#             */
-/*   Updated: 2025/02/13 14:04:34 by vbonnard         ###   ########.fr       */
+/*   Updated: 2025/05/21 11:34:58 by vbonnard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,27 @@
 
 char	*ft_strjoin(char const *s1, char const *s2)
 {
-	char	*str;
+	char	*joined;
+	size_t	i;
+	size_t	j;
 
-	str = malloc(sizeof(char) * ((ft_strlen(s1) + ft_strlen(s2))) + 1);
-	if (!str)
-		return (NULL);
-	ft_strlcpy(str, s1, ft_strlen(s1) + 1);
-	ft_strlcat(str, s2, ft_strlen(s1) + ft_strlen(s2) + 1);
-	return (str);
+	if (!s1)
+		return (ft_strdup(s2));
+	if (!s2)
+		return (ft_strdup(s1));
+	joined = malloc(ft_strlen(s1) + ft_strlen(s2) + 1);
+	i = 0;
+	while (i < ft_strlen(s1))
+	{
+		joined[i] = s1[i];
+		i++;
+	}
+	j = 0;
+	while (j < ft_strlen(s2))
+	{
+		joined[i + j] = s2[j];
+		j++;
+	}
+	joined[i + j] = '\0';
+	return (joined);
 }

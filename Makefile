@@ -1,93 +1,92 @@
+# 🏳️‍🌈 Définition des couleurs
+RESET   = \033[0m
+RED     = \033[31m
+GREEN   = \033[32m
+YELLOW  = \033[33m
+BLUE    = \033[34m
+MAGENTA = \033[35m
+CYAN    = \033[36m
+BOLD    = \033[1m
+
+# 🏆 Nom du projet
+PROJECT_NAME = lib/libft.a
+
+# 🏳️‍🌈 Variables de configuration
+IS_LIBFT ?= false
+IS_MLX ?= false
+
+# 🛠 Compilateur et flags
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror -Iinclude
+LDFLAGS =
 
-# CATEGORY SOURCES
-SRC_CONVERSION =	src/conversion/ft_atoi.c\
-					src/conversion/ft_itoa.c\
-					src/conversion/ft_litoa.c
+# 🖥️ Détection de l'OS
+UNAME_S := $(shell uname -s)
+ifeq ($(UNAME_S), Linux)
+	MLX_DIR   = minilibx-linux
+	MLX       = $(MLX_DIR)/libmlx_Linux.a
+	MLX_FLAGS = -L$(MLX_DIR) -lmlx -lXext -lX11 -lm -lz
+	CFLAGS   += -I/usr/include
+else ifeq ($(UNAME_S), Darwin)
+	MLX_DIR   = minilibx-mac-2
+	MLX       = $(MLX_DIR)/libmlx.a
+	MLX_FLAGS = -L$(MLX_DIR) -lmlx -framework OpenGL -framework AppKit -I /opt/X11/include/X11
+	CFLAGS   += -I/opt/homebrew/include
+	LDFLAGS  += -L/opt/homebrew/lib
+endif
 
-SRC_CTYPE =	src/ctype/ft_isalnum.c\
-			src/ctype/ft_isalpha.c\
-			src/ctype/ft_isascii.c\
-			src/ctype/ft_isdigit.c\
-			src/ctype/ft_isprint.c\
-			src/ctype/ft_tolower.c\
-			src/ctype/ft_toupper.c
+ifeq ($(IS_MLX), true)
+	CFLAGS += -I$(MLX_DIR)
+endif
 
-SRC_IO =	src/io/ft_putchar_fd.c\
-			src/io/ft_putendl_fd.c\
-			src/io/ft_putnbr_fd.c\
-			src/io/ft_putstr_fd.c
+# 📂 Répertoires
+SRC_DIR = src
+OBJ_DIR = obj
+INCLUDE_DIR = include
 
-SRC_LIST =		src/list/ft_lstadd_back.c \
-				src/list/ft_lstadd_front.c \
-				src/list/ft_lstclear.c \
-				src/list/ft_lstdelone.c \
-				src/list/ft_lstiter.c \
-				src/list/ft_lstlast.c \
-				src/list/ft_lstmap.c \
-				src/list/ft_lstnew.c \
-				src/list/ft_lstsize.c
+# 📌 Fichiers sources et objets
+SRC_FILES = $(wildcard $(SRC_DIR)/**/*.c) $(wildcard $(SRC_DIR)/*.c)
+OBJ_FILES = $(patsubst $(SRC_DIR)/%.c, $(OBJ_DIR)/%.o, $(SRC_FILES))
 
-SRC_MEMORY =	src/memory/ft_bzero.c\
-				src/memory/ft_calloc.c\
-				src/memory/ft_memchr.c\
-				src/memory/ft_memcmp.c\
-				src/memory/ft_memcpy.c\
-				src/memory/ft_memmove.c\
-				src/memory/ft_memset.c\
-				src/memory/ft_realloc.c
+# 📚 Headers
+INCLUDES = -I$(INCLUDE_DIR)
 
-SRC_NUMBER =	src/number/ft_long_size.c\
-				src/number/ft_int_size.c
+# 🎯 Cible principale
+all: $(OBJ_DIR) $(PROJECT_NAME)
 
-SRC_STRING =	src/string/ft_split.c\
-				src/string/ft_strchr.c\
-				src/string/ft_strnchr.c\
-				src/string/ft_strdup.c\
-				src/string/ft_striteri.c\
-				src/string/ft_strjoin.c\
-				src/string/ft_strlcat.c\
-				src/string/ft_strlcpy.c\
-				src/string/ft_strndup.c\
-				src/string/ft_strncpy.c\
-				src/string/ft_strlen.c\
-				src/string/ft_strmapi.c\
-				src/string/ft_strcmp.c\
-				src/string/ft_strncmp.c\
-				src/string/ft_strnstr.c\
-				src/string/ft_strrchr.c\
-				src/string/ft_strtrim.c\
-				src/string/ft_substr.c
+$(PROJECT_NAME): $(OBJ_FILES)
+	@mkdir -p $(dir $@)
+	@echo "${MAGENTA}🚀 Création de la bibliothèque...${RESET}"
+	@ar rcs $@ $^
+	@echo "${GREEN}✅ Libft compilée avec succès !${RESET}"
 
-SRC_PRINTF =	src/printf/format.c\
-				src/printf/formatted_flags.c\
-				src/printf/ft_printf.c\
-				src/printf/print.c\
-				src/printf/print1.c\
-				src/printf/utils1.c
+# 🛠️ Compilation des objets
+$(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
+	@mkdir -p $(dir $@)
+	$(CC) -c $(CFLAGS) $(INCLUDES) $< -o $@
+	@echo "${CYAN}🔨 Compilé : $< -> $@${RESET}"
 
-# ALL SOURCES
-SRC = $(SRC_CTYPE) $(SRC_STRING) $(SRC_MEMORY) $(SRC_NUMBER) $(SRC_CONVERSION) $(SRC_IO) $(SRC_PRINTF) $(SRC_LIST)
+$(OBJ_DIR):
+	@mkdir -p $(OBJ_DIR)
 
-# OBJECTS OF SOURCES
-OBJ = $(SRC:.c=.o)
-
-# LIB NAME
-TARGET = lib/libft.a
-
-all: $(TARGET)
-
-$(TARGET): $(OBJ)
-	mkdir -p $(dir $(TARGET))
-	ar rcs $@ $^
-
+# 🧹 Nettoyage
 clean:
-	rm -f $(OBJ)
+	@rm -rf $(OBJ_DIR)
+	@echo "${RED}🧼 Objets supprimés.${RESET}"
 
 fclean: clean
-	rm -rf lib
+	@rm -f $(PROJECT_NAME)
+	@echo "${RED}🗑️  Nettoyage complet effectué.${RESET}"
 
 re: fclean all
 
-.PHONY: all clean fclean re
+# 🆘 Aide
+help:
+	@echo "${BOLD}${CYAN}--- 📘 Liste des commandes disponibles ---${RESET}"
+	@echo "${BOLD}make${RESET}        : Compile le projet ($(PROJECT_NAME))"
+	@echo "${BOLD}make clean${RESET}  : Supprime les fichiers objets"
+	@echo "${BOLD}make fclean${RESET} : Supprime les objets + la bibliothèque"
+	@echo "${BOLD}make re${RESET}     : Nettoie puis recompile tout"
+	@echo "${BOLD}make help${RESET}   : Affiche ce message d’aide"
+
+.PHONY: all clean fclean re help

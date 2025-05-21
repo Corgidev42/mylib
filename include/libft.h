@@ -6,17 +6,23 @@
 /*   By: vbonnard <vbonnard@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 13:53:38 by vbonnard          #+#    #+#             */
-/*   Updated: 2025/03/07 12:27:38 by vbonnard         ###   ########.fr       */
+/*   Updated: 2025/05/21 11:38:22 by vbonnard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
 
+# include <fcntl.h>
 # include <stdarg.h>
+# include <stdio.h>
 # include <stdlib.h>
 # include <string.h>
 # include <unistd.h>
+
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 42
+# endif
 
 typedef struct s_list
 {
@@ -269,7 +275,8 @@ void				*ft_memmove(void *dest, const void *src, size_t n);
  * @param s La zone mémoire à parcourir.
  * @param c Le caractère à rechercher.
  * @param n Le nombre d'octets à analyser.
- * @return Un pointeur sur la première occurrence de 'c', ou NULL si non trouvée.
+ * @return Un pointeur sur la première occurrence de 'c',
+	ou NULL si non trouvée.
  */
 void				*ft_memchr(const void *s, int c, size_t n);
 
@@ -373,6 +380,21 @@ char				*ft_strnchr(const char *s, int c, size_t n);
 char				*ft_strchr(const char *s, int c);
 
 /**
+ * @brief Duplique une sous-chaîne de taille limitée.
+ *
+ * Alloue et copie au maximum `size` octets depuis la chaîne source,
+ * sans forcément s'arrêter sur `\0`. Fonction utile pour copier
+ * des chaînes partielles.
+ *
+ * @param s Chaîne source.
+ * @param size Nombre de caractères à dupliquer.
+ * @return Pointeur vers la nouvelle chaîne, ou NULL en cas d'erreur.
+ *
+ * @note Cette fonction devrait idéalement être placée dans libft.
+ */
+char	*ft_strldup(const char *s, size_t size);
+
+/**
  * @brief Recherche la dernière occurrence d'un caractère dans une chaîne.
  *
  * @param s La chaîne à analyser.
@@ -418,7 +440,6 @@ int					ft_strncmp(const char *s1, const char *s2, size_t n);
  */
 char				*ft_strncpy(char *dst, const char *src, size_t len);
 
-
 /**
  * @brief Duplique une chaîne de caractères jusqu'à une longueur spécifiée.
  *
@@ -432,7 +453,6 @@ char				*ft_strncpy(char *dst, const char *src, size_t len);
  *         si l'allocation de mémoire échoue.
  */
 char				*ft_strndup(const char *s, size_t n);
-
 
 /**
  * @brief Recherche une sous-chaîne dans une chaîne,
@@ -467,12 +487,16 @@ char				*ft_strdup(const char *s);
 char				*ft_substr(char const *s, unsigned int start, size_t len);
 
 /**
- * @brief Concatène deux chaînes ensemble.
+ * @brief Concatène deux chaînes de caractères dans une nouvelle allocation.
  *
- * @param s1 La première chaîne.
- * @param s2 La deuxième chaîne à concaténer à la première.
- * @return Une nouvelle chaîne résultant de la concaténation de s1 et s2,
- * ou NULL si l'allocation échoue.
+ * Alloue une nouvelle chaîne contenant `s1` suivi de `s2`. Si un des deux
+ * pointeurs est NULL, duplique l’autre. Ne libère pas les entrées.
+ *
+ * @param s1 Première chaîne à concaténer.
+ * @param s2 Deuxième chaîne à concaténer.
+ * @return Chaîne nouvellement allouée, ou NULL si erreur.
+ *
+ * @note À déplacer dans la libft.
  */
 char				*ft_strjoin(char const *s1, char const *s2);
 
@@ -511,7 +535,7 @@ char				*ft_strmapi(char const *s, char (*f)(unsigned int, char));
  * en modifiant la chaîne sur place.
  *
  * @param s La chaîne à modifier.
- * @param f La fonction à appliquer à chaque caractère de la chaîne.
+ * @param f La fonction à appliquer à chaque caract����re de la chaîne.
  */
 void				ft_striteri(char *s, void (*f)(unsigned int, char *));
 
@@ -684,5 +708,50 @@ char				*formatted_number_precision(char *str, int precision,
 						int has_plus, int has_space);
 
 // ----------------------------------------------------------------------------
+
+/**
+ * @brief Lis depuis le descripteur jusqu'à trouver un saut de ligne.
+ *
+ * Lis dans un tampon jusqu'à ce qu'un `\n` soit trouvé ou que `read`
+ * retourne 0. Le contenu est stocké et concaténé dans `stash`.
+ *
+ * @param fd Descripteur de fichier à lire.
+ * @param stash Chaîne contenant les données lues précédemment.
+ * @return `stash` mis à jour avec les nouvelles données lues.
+ */
+char				*read_and_append(int fd, char *stash);
+
+/**
+ * @brief Extrait une ligne complète (terminée par '\n') depuis le stash.
+ *
+ * Copie les caractères depuis le début de `stash` jusqu’à (et incluant)
+ * le premier `\n` trouvé. Alloue dynamiquement la nouvelle ligne.
+ *
+ * @param stash Chaîne contenant le contenu en attente de traitement.
+ * @return Ligne extraite, ou NULL si aucune ligne complète.
+ */
+char				*extract_line(char *stash);
+
+/**
+ * @brief Coupe le `stash` en supprimant la ligne déjà extraite.
+ *
+ * Crée une nouvelle chaîne contenant le reste du `stash` après
+ * la première ligne (celle extraite). Libère l’ancien `stash`.
+ *
+ * @param stash Chaîne contenant la ligne extraite + le reste.
+ * @return Nouveau stash (le reste uniquement), ou NULL si vide.
+ */
+char				*trim_stash(char *stash);
+
+/**
+ * @brief Lit une ligne dans un fichier, comme le demande le projet 42.
+ *
+ * Fonction principale qui combine lecture, extraction et gestion de
+ * la mémoire pour retourner une ligne à la fois depuis un fichier.
+ *
+ * @param fd Descripteur de fichier à lire.
+ * @return Ligne lue (incluant '\n' si présent), ou NULL à EOF ou erreur.
+ */
+char				*get_next_line(int fd);
 
 #endif
