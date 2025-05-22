@@ -6,7 +6,7 @@
 /*   By: vbonnard <vbonnard@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 13:53:38 by vbonnard          #+#    #+#             */
-/*   Updated: 2025/05/21 11:56:58 by vbonnard         ###   ########.fr       */
+/*   Updated: 2025/05/22 22:23:19 by vbonnard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -301,13 +301,19 @@ int					ft_memcmp(const void *s1, const void *s2, size_t n);
 void				*ft_calloc(size_t nmemb, size_t size);
 
 /**
- * Réalloue la mémoire pointée par 'ptr' pour une nouvelle taille.
+ * @brief Réalloue un bloc de mémoire.
  *
- * @param ptr Le pointeur vers la mémoire existante.
- * @param new_size La nouvelle taille de la mémoire.
- * @return Un pointeur sur la mémoire réallouée.
+ * Cette fonction tente de redimensionner le bloc de mémoire pointé par `ptr`
+ * de `old_size` octets à `new_size` octets. Si `ptr` est NULL, la fonction
+ * se comporte comme malloc(new_size). Si `new_size` est 0 et que `ptr` n'est
+ * pas NULL, la mémoire pointée par `ptr` est libérée et la fonction retourne NULL.
+ *
+ * @param ptr Pointeur vers le bloc de mémoire à réallouer.
+ * @param old_size Taille actuelle du bloc de mémoire en octets.
+ * @param new_size Nouvelle taille désirée du bloc de mémoire en octets.
+ * @return Un pointeur vers le nouveau bloc de mémoire, ou NULL en cas d'échec.
  */
-void				*ft_realloc(void *ptr, size_t new_size);
+void	*ft_realloc(void *ptr, size_t old_size, size_t new_size)
 
 // --------------- Number functions -------------------------------------------
 /**
