@@ -6,7 +6,7 @@
 /*   By: vbonnard <vbonnard@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 13:53:38 by vbonnard          #+#    #+#             */
-/*   Updated: 2025/05/22 22:23:28 by vbonnard         ###   ########.fr       */
+/*   Updated: 2025/05/22 22:23:34 by vbonnard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -313,7 +313,7 @@ void				*ft_calloc(size_t nmemb, size_t size);
  * @param new_size Nouvelle taille désirée du bloc de mémoire en octets.
  * @return Un pointeur vers le nouveau bloc de mémoire, ou NULL en cas d'échec.
  */
-void				*ft_realloc(void *ptr, size_t old_size, size_t new_size)
+void				*ft_realloc(void *ptr, size_t old_size, size_t new_size);
 
 // --------------- Number functions -------------------------------------------
 /**
