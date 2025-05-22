@@ -6,7 +6,7 @@
 /*   By: vbonnard <vbonnard@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/05 21:37:24 by ezeppa            #+#    #+#             */
-/*   Updated: 2025/05/22 22:21:26 by vbonnard         ###   ########.fr       */
+/*   Updated: 2025/05/22 22:22:14 by vbonnard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,13 @@ void	*ft_realloc(void *ptr, size_t old_size, size_t new_size)
 	new_ptr = malloc(new_size);
 	if (!new_ptr)
 		return (ptr);
-	ft_memcpy(new_ptr, ptr, old_size < new_size ? old_size : new_size);
+	size_t	copy_size;
+
+	if (old_size < new_size)
+		copy_size = old_size;
+	else
+		copy_size = new_size;
+	ft_memcpy(new_ptr, ptr, copy_size);
 	free(ptr);
 	return (new_ptr);
 }
